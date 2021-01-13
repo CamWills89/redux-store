@@ -1,13 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
+import reducer from "../utils/reducers";
 
 const store = configureStore({
-  reducer: {
-    products: [],
-    cart: [],
-    cartOpen: false,
-    categories: [],
-    currentCategory: "",
-  },
+  reducer: reducer
 });
 
 export default store;
