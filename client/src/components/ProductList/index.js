@@ -1,29 +1,17 @@
 import React, { useEffect } from "react";
 import { useQuery } from "@apollo/react-hooks";
+import { useDispatch, useSelector } from "react-redux";
 
 import ProductItem from "../ProductItem";
 import { QUERY_PRODUCTS } from "../../utils/queries";
-import { useStoreContext } from "../../utils/GlobalState";
+// import { useStoreContext } from "../../utils/GlobalState";
 import { UPDATE_PRODUCTS } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
 import spinner from "../../assets/spinner.gif";
 
 function ProductList() {
-  // const { loading, data } = useQuery(QUERY_PRODUCTS);
-
-  // const products = data?.products || [];
-
-  // function filterProducts() {
-  //   if (!currentCategory) {
-  //     return products;
-  //   }
-
-  //   return products.filter(product => product.category._id === currentCategory);
-  // }
-
-  // immediately execute the useStoreContext() function to retrieve the current
-  // global state object and the dipatch() method to update state.
-  const [state, dispatch] = useStoreContext();
+  const state = useSelector((state) => state);
+  const dispatch = useDispatch();
 
   const { currentCategory } = state;
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/react-hooks";
 
-import { useStoreContext } from "../utils/GlobalState";
+// import { useStoreContext } from "../utils/GlobalState";
 import {
   REMOVE_FROM_CART,
   UPDATE_CART_QUANTITY,
@@ -14,24 +14,15 @@ import { idbPromise } from "../utils/helpers";
 
 import Cart from "../components/Cart";
 import spinner from "../assets/spinner.gif";
+import { useDispatch, useSelector } from 'react-redux';
 
 function Detail() {
-  // const { id } = useParams();
+  // const [state, dispatch] = useStoreContext();
 
-  // const [currentProduct, setCurrentProduct] = useState({})
+  const state = useSelector(state => state)
+  const dispatch = useDispatch();
 
-  // const { loading, data } = useQuery(QUERY_PRODUCTS);
-
-  // const products = data?.products || [];
-
-  // useEffect(() => {
-  //   if (products.length) {
-  //     setCurrentProduct(products.find(product => product._id === id));
-  //   }
-  // }, [products, id]);
-
-  const [state, dispatch] = useStoreContext();
-  const { id } = useParams();
+  const { id } = useParams()
 
   // we are saving the current product locally, because we will only use that data here
   // so it doesnt need to be stored globally, its similar reason we do that for login and signup
