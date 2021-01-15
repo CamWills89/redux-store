@@ -24,6 +24,7 @@ This is an e-commerce application that allows users to shop for various items, a
   - JavaScript
   - HTML/CSS
   - MERN Stack
+  - GraphQL
 
   ## Credits:
 
